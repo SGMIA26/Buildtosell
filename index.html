@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ValuitBiz – Định Giá Doanh Nghiệp Tự Động Online | Chuẩn M&A Việt Nam</title>
+
+  <!-- ===== SEO META TAGS ===== -->
+  <meta name="description" content="Hệ thống định giá doanh nghiệp tự động trực tuyến dành cho Startup, SMEs và Doanh nghiệp lớn. Ước tính giá trị công ty theo phương pháp P/E, P/S, DCF trong 3 phút.">
+  <meta name="keywords" content="định giá doanh nghiệp, định giá công ty, công cụ định giá online, định giá startup, cách tính giá trị doanh nghiệp, M&A Việt Nam, DCF, P/E, EBITDA">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://valuitbiz.com/">
+
+  <!-- ===== OPEN GRAPH ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ValuitBiz – Định Giá Doanh Nghiệp Tự Động Online | Chuẩn M&A">
+  <meta property="og:description" content="Nhận kết quả ước tính giá trị doanh nghiệp miễn phí trong 3 phút. Phân tích sâu theo từng mô hình kinh doanh.">
+  <meta property="og:image" content="https://valuitbiz.com/assets/og-banner.jpg">
+  <meta property="og:url" content="https://valuitbiz.com/">
+
+  <!-- ===== SCHEMA.ORG STRUCTURED DATA ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ValuitBiz – Hệ thống Định giá Doanh nghiệp Tự động",
+    "url": "https://valuitbiz.com",
+    "operatingSystem": "All",
+    "applicationCategory": "FinanceApplication",
+    "description": "Công cụ ước tính giá trị doanh nghiệp tự động dành cho Startup, SMEs và Doanh nghiệp lớn theo chuẩn M&A Việt Nam.",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "2450",
+      "bestRating": "5"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "15.00",
+      "priceCurrency": "USD",
+      "description": "Báo cáo phân tích chuyên sâu dành cho nhà đầu tư và chủ doanh nghiệp"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "ValuitBiz",
+      "url": "https://valuitbiz.com"
+    }
+  }
+  </script>
+
+  <!-- ===== FONTS: Cormorant Garamond (Display) + DM Sans (Body) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================================================
+       DESIGN SYSTEM – ValuitBiz Corporate Luxury
+       Bảng màu: Navy đậm chủ đạo, Amber vàng đồng điểm nhấn
+    =================================================== */
+    :root {
+      --navy-950: #07101E;
+      --navy-900: #0D1B2E;
+      --navy-800: #14253F;
+      --navy-700: #1B3055;
+      --navy-600: #1E3A6A;
+      --navy-500: #2A527A;
+      --navy-400: #3D6E96;
+      --navy-300: #6A97B8;
+      --navy-200: #A0BFCF;
+      --navy-100: #D4E4ED;
+      --navy-50:  #EEF5FA;
+
+      --amber-600: #C47A1A;
+      --amber-500: #D98E22;
+      --amber-400: #F0A830;
+      --amber-300: #F5BF62;
+      --amber-100: #FAE8C0;
+      --amber-50:  #FEF6E4;
+
+      --cream-100: #F8F5EE;
+      --cream-50:  #FDFBF7;
+
+      --green-success: #16A34A;
+      --red-error: #DC2626;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+
+      --shadow-card: 0 2px 24px rgba(7, 16, 30, 0.10), 0 1px 4px rgba(7, 16, 30, 0.06);
+      --shadow-elevated: 0 8px 48px rgba(7, 16, 30, 0.16), 0 2px 8px rgba(7, 16, 30, 0.08);
+
+      --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--navy-950);
+      color: var(--navy-50);
+      min-height: 100vh;
+      line-height: 1.65;
+      /* Nền: lưới vi mô tạo chiều sâu corporate */
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(62, 110, 150, 0.18) 0%, transparent 60%),
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 100% 100%, 60px 60px, 60px 60px;
+    }
+
+    /* ===== LAYOUT ===== */
+    .page-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 40px;
+      padding: 6px 18px 6px 10px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--amber-300);
+    }
+
+    .logo-dot {
+      width: 8px; height: 8px;
+      background: var(--amber-400);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
+    }
+
+    .site-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .site-title .accent { color: var(--amber-400); font-style: italic; }
+
+    .site-subtitle {
+      font-size: 15px;
+      color: var(--navy-300);
+      max-width: 480px;
+      margin: 0 auto;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Dải thống kê xã hội nhỏ dưới subtitle */
+    .trust-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      font-size: 12px;
+      color: var(--navy-400);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .trust-item strong { color: var(--navy-200); font-weight: 500; }
+
+    .trust-divider { width: 1px; height: 14px; background: var(--navy-700); }
+
+    /* ===== CARD CHÍNH ===== */
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--radius-xl);
+      padding: 36px 40px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-elevated);
+    }
+
+    @media (max-width: 600px) {
+      .card { padding: 24px 20px; }
+    }
+
+    /* ===== MÀN HÌNH 0: CHỌN PHÂN KHÚC ===== */
+    #screen-segment { display: block; }
+
+    .screen-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .segment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .segment-card {
+      background: rgba(255,255,255,0.035);
+      border: 1.5px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .segment-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(240,168,48,0.08) 0%, transparent 60%);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .segment-card:hover {
+      border-color: var(--amber-500);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(196, 122, 26, 0.20);
+    }
+
+    .segment-card:hover::before { opacity: 1; }
+
+    .segment-icon {
+      font-size: 26px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .segment-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 5px;
+    }
+
+    .segment-desc {
+      font-size: 12px;
+      color: var(--navy-400);
+      line-height: 1.55;
+    }
+
+    .segment-tag {
+      position: absolute;
+      top: 12px; right: 12px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      background: rgba(240,168,48,0.12);
+      color: var(--amber-300);
+      border: 1px solid rgba(240,168,48,0.25);
+      border-radius: 20px;
+      padding: 2px 9px;
+    }
+
+    /* ===== PROGRESS BAR ===== */
+    .progress-wrap {
+      margin-bottom: 28px;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .progress-label {
+      font-size: 12px;
+      color: var(--navy-400);
+      font-weight: 400;
+    }
+
+    .progress-count {
+      font-size: 12px;
+      color: var(--amber-400);
+      font-weight: 500;
+    }
+
+    .progress-track {
+      height: 3px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--amber-500), var(--amber-300));
+      border-radius: 3px;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0%;
+    }
+
+    /* ===== KHUNG CÂU HỎI ===== */
+    #screen-questions { display: none; }
+
+    .question-number {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--amber-500);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .question-text {
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.35;
+      margin-bottom: 24px;
+    }
+
+    /* Input text/number */
+    .q-input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      color: rgba(255,255,255,0.92);
+      font-family: var(--font-body);
+      font-size: 15px;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .q-input::placeholder { color: var(--navy-500); }
+
+    .q-input:focus {
+      border-color: var(--amber-400);
+      background: rgba(240,168,48,0.05);
+      box-shadow: 0 0 0 3px rgba(240,168,48,0.12);
+    }
+
+    /* Input hint text */
+    .q-hint {
+      margin-top: 7px;
+      font-size: 12px;
+      color: var(--navy-500);
+    }
+
+    /* Radio/select options */
+    .option-list { display: flex; flex-direction: column; gap: 9px; }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: var(--transition);
+      color: rgba(255,255,255,0.82);
+      font-size: 14px;
+      font-family: var(--font-body);
+      text-align: left;
+    }
+
+    .option-btn .opt-marker {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transition);
+      font-size: 12px;
+    }
+
+    .option-btn:hover {
+      border-color: var(--amber-400);
+      background: rgba(240,168,48,0.06);
+    }
+
+    .option-btn.selected {
+      border-color: var(--amber-400);
+      background: rgba(240,168,48,0.10);
+      color: rgba(255,255,255,0.96);
+    }
+
+    .option-btn.selected .opt-marker {
+      background: var(--amber-400);
+      border-color: var(--amber-400);
+      color: var(--navy-950);
+    }
+
+    /* Điều hướng nút */
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .btn-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      color: var(--navy-400);
+      font-family: var(--font-body);
+      font-size: 14px;
+      cursor: pointer;
+      padding: 8px 0;
+      transition: var(--transition);
+    }
+
+    .btn-back:hover { color: rgba(255,255,255,0.7); }
+
+    .btn-back.hidden { visibility: hidden; pointer-events: none; }
+
+    .btn-next {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--amber-500);
+      color: var(--navy-950);
+      border: none;
+      border-radius: var(--radius-md);
+      padding: 12px 26px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-next:hover {
+      background: var(--amber-400);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(217, 142, 34, 0.4);
+    }
+
+    .btn-next:active { transform: translateY(0); }
+
+    /* ===== MÀN HÌNH LOADING ===== */
+    #screen-loading { display: none; text-align: center; padding: 32px 0; }
+
+    .loader-ring {
+      width: 52px; height: 52px;
+      border: 3px solid rgba(255,255,255,0.08);
+      border-top-color: var(--amber-400);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+      margin: 0 auto 22px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 6px;
+    }
+
+    .loading-sub {
+      font-size: 12px;
+      color: var(--navy-500);
+    }
+
+    .loading-steps {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .loading-step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--navy-500);
+      transition: var(--transition);
+    }
+
+    .loading-step.active { color: var(--amber-300); }
+
+    .loading-step.done { color: var(--navy-400); }
+
+    .step-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--navy-700);
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .loading-step.active .step-dot { background: var(--amber-400); }
+    .loading-step.done .step-dot { background: var(--navy-500); }
+
+    /* ===== MÀN HÌNH KẾT QUẢ ===== */
+    #screen-result { display: none; }
+
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(22, 163, 74, 0.12);
+      border: 1px solid rgba(22, 163, 74, 0.25);
+      color: #4ADE80;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    /* Panel kết quả chính */
+    .result-panel {
+      background: var(--navy-900);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .result-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber-600), var(--amber-300));
+    }
+
+    .result-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      color: var(--navy-400);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .result-value {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--amber-400);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .result-per-share {
+      font-size: 13px;
+      color: var(--navy-300);
+    }
+
+    /* Bảng phương pháp */
+    .method-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
+    .method-table th {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--navy-500);
+      text-transform: uppercase;
+      padding: 8px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      text-align: left;
+    }
+
+    .method-table td {
+      padding: 11px 12px;
+      color: var(--navy-200);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .method-table tr:last-child td { border-bottom: none; }
+
+    .method-table .val-col {
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .method-table .weight-col {
+      text-align: right;
+      color: var(--amber-500);
+    }
+
+    /* Bảng chiết khấu BCTC */
+    .discount-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      margin-bottom: 18px;
+    }
+
+    .discount-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--navy-400);
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .discount-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 13px;
+    }
+
+    .discount-row:last-child { border-bottom: none; }
+
+    .discount-row .tier { color: var(--navy-300); }
+
+    .discount-row .pct { font-weight: 500; }
+
+    .discount-row.active .tier { color: rgba(255,255,255,0.85); }
+    .discount-row.active .pct { color: var(--amber-300); }
+
+    .active-badge {
+      font-size: 10px;
+      background: rgba(240,168,48,0.12);
+      color: var(--amber-300);
+      border: 1px solid rgba(240,168,48,0.22);
+      border-radius: 10px;
+      padding: 2px 8px;
+    }
+
+    /* Disclaimer */
+    .disclaimer-box {
+      background: rgba(196, 122, 26, 0.06);
+      border: 1px solid rgba(196, 122, 26, 0.18);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--navy-300);
+      margin-bottom: 18px;
+    }
+
+    .disclaimer-box strong {
+      color: var(--amber-400);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Checkbox khước từ */
+    .consent-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 0;
+    }
+
+    .consent-checkbox {
+      width: 18px; height: 18px;
+      border-radius: 4px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 1px;
+      accent-color: var(--amber-400);
+    }
+
+    .consent-label {
+      font-size: 13px;
+      color: var(--navy-300);
+      cursor: pointer;
+      line-height: 1.6;
+    }
+
+    /* Lead form / thanh toán */
+    #lead-form { display: none; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 520px) {
+      .form-grid { grid-template-columns: 1fr; }
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--navy-400);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      color: rgba(255,255,255,0.88);
+      font-size: 14px;
+      font-family: var(--font-body);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-input::placeholder { color: var(--navy-600); }
+
+    .form-input:focus {
+      border-color: var(--amber-400);
+      box-shadow: 0 0 0 3px rgba(240,168,48,0.10);
+    }
+
+    .btn-payment {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--amber-600), var(--amber-400));
+      color: var(--navy-950);
+      border: none;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-payment:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 28px rgba(196, 122, 26, 0.45);
+    }
+
+    .payment-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--navy-500);
+      margin-top: 10px;
+    }
+
+    .payment-note a {
+      color: var(--navy-400);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 11px;
+      color: var(--navy-600);
+      line-height: 1.75;
+    }
+
+    .footer-disclaimer {
+      max-width: 600px;
+      margin: 0 auto 14px;
+    }
+
+    .footer-links { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+
+    .footer-links a {
+      color: var(--navy-500);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--amber-400); }
+
+    /* ===== UTILITY ===== */
+    .hidden { display: none !important; }
+    .text-center { text-align: center; }
+
+    /* Hiệu ứng xuất hiện mượt cho các màn hình */
+    .screen-enter {
+      animation: screenEnter 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+
+    @keyframes screenEnter {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+      <div class="logo-badge">
+        <span class="logo-dot"></span>
+        ValuitBiz · M&A Engine v2.0
+      </div>
+
+      <h1 class="site-title">
+        Định Giá <span class="accent">Doanh Nghiệp</span><br>Tự Động Online
+      </h1>
+
+      <p class="site-subtitle">
+        Hệ thống mô phỏng tài chính đa phương pháp dành cho Startup, SMEs và Doanh nghiệp lớn. Nhận kết quả ước tính giá trị trong 3 phút.
+      </p>
+
+      <div class="trust-bar">
+        <span class="trust-item">
+          <strong>2,450+</strong> doanh nghiệp đã định giá
+        </span>
+        <span class="trust-divider"></span>
+        <span class="trust-item">
+          <strong>4.9★</strong> đánh giá trung bình
+        </span>
+        <span class="trust-divider"></span>
+        <span class="trust-item">
+          <strong>Bảo mật</strong> theo NĐ 13/2023/NĐ-CP
+        </span>
+      </div>
+    </header>
+
+    <!-- ===== KHUNG CHÍNH ===== -->
+    <main>
+      <div class="card">
+
+        <!-- =====================================================
+             MÀN HÌNH 0: CHỌN PHÂN KHÚC
+        ====================================================== -->
+        <div id="screen-segment">
+          <h2 class="screen-title">Chọn quy mô doanh nghiệp của bạn</h2>
+
+          <div class="segment-grid">
+
+            <!-- Nhóm 1: Startup -->
+            <button class="segment-card" onclick="startFlow('startup')">
+              <span class="segment-tag">Berkus · Scorecard</span>
+              <span class="segment-icon">🚀</span>
+              <div class="segment-name">Khởi nghiệp / Startup</div>
+              <p class="segment-desc">Chưa có dòng tiền ổn định. Định giá theo tiềm năng, công nghệ lõi và quy mô thị trường (TAM).</p>
+            </button>
+
+            <!-- Nhóm 2: SMEs -->
+            <button class="segment-card" onclick="startFlow('sme')">
+              <span class="segment-tag">P/E · P/S · DCF</span>
+              <span class="segment-icon">🏢</span>
+              <div class="segment-name">SMEs</div>
+              <p class="segment-desc">Doanh thu / Giá trị tối đa ~125 tỷ VNĐ ($5M). Đã có báo cáo tài chính nội bộ.</p>
+            </button>
+
+            <!-- Nhóm 3: Enterprise -->
+            <button class="segment-card" onclick="startFlow('enterprise')">
+              <span class="segment-tag">FCFF · WACC · DCF</span>
+              <span class="segment-icon">💎</span>
+              <div class="segment-name">Doanh nghiệp lớn</div>
+              <p class="segment-desc">Từ $5M đến $2 tỷ. Hệ thống quản trị tài chính vĩ mô, EBITDA, dự báo 5 năm.</p>
+            </button>
+
+          </div>
+        </div><!-- /screen-segment -->
+
+
+        <!-- =====================================================
+             MÀN HÌNH 1: LUỒNG CÂU HỎI
+        ====================================================== -->
+        <div id="screen-questions">
+
+          <!-- Progress bar -->
+          <div class="progress-wrap">
+            <div class="progress-header">
+              <span class="progress-label" id="progress-segment-label"></span>
+              <span class="progress-count" id="progress-count-label"></span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+
+          <!-- Nơi render từng câu hỏi -->
+          <div id="question-render"></div>
+
+          <!-- Điều hướng -->
+          <div class="nav-row">
+            <button class="btn-back hidden" id="btn-back" onclick="prevStep()">
+              ← Quay lại
+            </button>
+            <button class="btn-next" id="btn-next" onclick="nextStep()">
+              Tiếp theo →
+            </button>
+          </div>
+
+        </div><!-- /screen-questions -->
+
+
+        <!-- =====================================================
+             MÀN HÌNH 2: LOADING
+        ====================================================== -->
+        <div id="screen-loading">
+          <div class="loader-ring"></div>
+          <p class="loading-title">Đang phân tích dữ liệu...</p>
+          <p class="loading-sub">Hệ thống đồng bộ chỉ số ngành từ HOSE/HNX</p>
+
+          <div class="loading-steps">
+            <div class="loading-step" id="lstep-0">
+              <div class="step-dot"></div> Thu thập dữ liệu đầu vào
+            </div>
+            <div class="loading-step" id="lstep-1">
+              <div class="step-dot"></div> Áp dụng bội số ngành tham chiếu
+            </div>
+            <div class="loading-step" id="lstep-2">
+              <div class="step-dot"></div> Tính toán trọng số phương pháp
+            </div>
+            <div class="loading-step" id="lstep-3">
+              <div class="step-dot"></div> Tổng hợp kết quả định giá
+            </div>
+          </div>
+        </div><!-- /screen-loading -->
+
+
+        <!-- =====================================================
+             MÀN HÌNH 3: KẾT QUẢ
+        ====================================================== -->
+        <div id="screen-result">
+
+          <div>
+            <span class="result-badge">✓ Mô phỏng tài chính hoàn tất</span>
+          </div>
+
+          <!-- Panel giá trị chính -->
+          <div class="result-panel">
+            <p class="result-label">Giá trị doanh nghiệp ước tính sơ bộ</p>
+            <div class="result-value" id="txt-valuation">~ 25,000,000,000 VNĐ</div>
+            <p class="result-per-share" id="txt-per-share">Giá trị mỗi cổ phần: 12,500 VNĐ / cp</p>
+
+            <!-- Bảng chi tiết từng phương pháp (render động) -->
+            <div id="method-detail-wrap"></div>
+          </div>
+
+          <!-- Bảng chiết khấu BCTC (chỉ hiện với SME / Enterprise) -->
+          <div class="discount-box" id="discount-box-wrap"></div>
+
+          <!-- DISCLAIMER BẮT BUỘC -->
+          <div class="disclaimer-box">
+            <strong>⚠ TUYÊN BỐ KHƯỚC TỪ TRÁCH NHIỆM PHÁP LÝ</strong>
+            Kết quả ước tính giá trị trên được xử lý hoàn toàn tự động bằng mô hình toán học dựa trên số liệu do bạn cung cấp và giả định chỉ số ngành tham chiếu. Kết quả này chỉ mang tính chất tham khảo nội bộ, phục vụ định hướng chiến lược. Đây <strong>không phải</strong> chứng thư thẩm định giá theo quy định của Bộ Tài chính Việt Nam và không có giá trị pháp lý trong các giao dịch đầu tư, thế chấp ngân hàng, M&A hay kê khai thuế.
+          </div>
+
+          <!-- Checkbox khước từ + Lead Form -->
+          <div class="consent-row">
+            <input type="checkbox" class="consent-checkbox" id="chk-consent" onchange="toggleLeadForm()">
+            <label class="consent-label" for="chk-consent">
+              Tôi đã đọc và hiểu rõ văn bản khước từ trách nhiệm. Tôi muốn nhận <strong>Báo cáo phân tích chuyên sâu (PDF)</strong> kèm nhận định tối ưu cấu trúc từ chuyên gia.
+            </label>
+          </div>
+
+          <!-- Form lead + thanh toán -->
+          <div id="lead-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="inp-name">Họ và Tên chủ doanh nghiệp</label>
+                <input type="text" id="inp-name" class="form-input" placeholder="Nguyễn Văn A">
+              </div>
+              <div class="form-group">
+                <label for="inp-email">Email nhận báo cáo PDF</label>
+                <input type="email" id="inp-email" class="form-input" placeholder="name@company.com">
+              </div>
+            </div>
+
+            <button class="btn-payment" onclick="requestPayment()">
+              Nâng cấp Báo cáo Phân tích Chuyên sâu · $15 USD
+            </button>
+
+            <p class="payment-note">
+              Thanh toán an toàn qua QR Code · Bảo mật SSL/TLS · Dữ liệu được ẩn danh hóa theo NĐ 13/2023<br>
+              Đã thanh toán quá 5 phút chưa nhận báo cáo?
+              <a onclick="openSupport()">Hỗ trợ khẩn qua Zalo →</a>
+            </p>
+          </div>
+
+          <!-- Nút định giá lại -->
+          <div style="text-align:center; margin-top: 24px;">
+            <button class="btn-back" onclick="resetAll()" style="visibility:visible; padding: 8px 16px;">
+              ← Định giá doanh nghiệp khác
+            </button>
+          </div>
+
+        </div><!-- /screen-result -->
+
+      </div><!-- /card -->
+    </main>
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <p class="footer-disclaimer">
+        ⚠ ValuitBiz là công cụ mô phỏng tài chính tự động. Kết quả không phải chứng thư thẩm định giá theo quy định Bộ Tài chính Việt Nam và không có giá trị pháp lý trong giao dịch đầu tư, thế chấp, M&A hoặc kê khai thuế. Dữ liệu người dùng được bảo mật và ẩn danh hóa theo Nghị định 13/2023/NĐ-CP.
+      </p>
+      <div class="footer-links">
+        <a href="/chinh-sach-bao-mat">Chính sách bảo mật</a>
+        <a href="/dieu-khoan">Điều khoản sử dụng</a>
+        <a href="/lien-he">Liên hệ</a>
+        <a href="/blog">Blog M&A</a>
+      </div>
+      <p style="margin-top: 14px;">© 2026 ValuitBiz · Hệ thống Định giá Doanh nghiệp Tự động</p>
+    </footer>
+
+  </div><!-- /page-wrapper -->
+
+
+  <!-- ================================================================
+       JAVASCRIPT ENGINE – FRONTEND LOGIC
+       Xử lý toàn bộ luồng câu hỏi, điều hướng và hiển thị kết quả
+  ================================================================ -->
+  <script>
+
+    /* ===============================================================
+       1. BỘ CÂU HỎI – 3 NHÓM
+       Mỗi câu hỏi có: id, type (text/number/select/select-score),
+       title, placeholder (nếu text/number), options (nếu select),
+       hint (gợi ý bên dưới input)
+    =============================================================== */
+
+    const QUESTIONS = {
+
+      /* ─── NHÓM 1: STARTUP ──────────────────────────────────────
+         Phương pháp: Berkus (5 yếu tố × tối đa 500k USD mỗi yếu tố)
+         + Scorecard (so sánh với startup cùng ngành)
+      ────────────────────────────────────────────────────────── */
+      startup: [
+        {
+          id: 'idea_stage',
+          type: 'select',
+          title: 'Startup của bạn đang ở giai đoạn nào?',
+          options: [
+            { val: 'idea',    label: 'Ý tưởng / Nghiên cứu – chưa có sản phẩm' },
+            { val: 'mvp',     label: 'Đã có MVP / Sản phẩm thử nghiệm beta' },
+            { val: 'revenue', label: 'Đang có doanh thu sơ bộ (≥ vài chục triệu/tháng)' },
+            { val: 'growth',  label: 'Tăng trưởng ổn định, đang mở rộng thị trường' },
+          ]
+        },
+        {
+          id: 'team_score',
+          type: 'select',
+          title: 'Đội ngũ sáng lập có kinh nghiệm trong ngành này không?',
+          options: [
+            { val: 0,   label: 'Chưa có kinh nghiệm trực tiếp' },
+            { val: 250, label: 'Có kinh nghiệm một phần, đang học hỏi' },
+            { val: 500, label: 'Founder từng làm ở ngành này 3–5 năm' },
+          ]
+        },
+        {
+          id: 'tam_billion',
+          type: 'number',
+          title: 'Tổng quy mô thị trường mục tiêu (TAM) ước tính là bao nhiêu tỷ VNĐ?',
+          placeholder: 'Ví dụ: 5000 (tức 5,000 tỷ VNĐ)',
+          hint: 'TAM = Tổng doanh thu có thể đạt được nếu chiếm 100% thị trường mục tiêu.'
+        },
+        {
+          id: 'ip_score',
+          type: 'select',
+          title: 'Mức độ bảo vệ công nghệ lõi / sở hữu trí tuệ (IP)?',
+          options: [
+            { val: 0,   label: 'Chưa có IP, dễ sao chép' },
+            { val: 250, label: 'Có lợi thế kỹ thuật nhất định nhưng chưa đăng ký' },
+            { val: 500, label: 'Đã đăng ký bằng sáng chế / quy trình độc quyền' },
+          ]
+        },
+        {
+          id: 'product_score',
+          type: 'select',
+          title: 'Sản phẩm đã có khách hàng thực sự sử dụng và trả tiền chưa?',
+          options: [
+            { val: 0,   label: 'Chưa có khách hàng trả tiền' },
+            { val: 250, label: 'Có 1–10 khách hàng beta hoặc PoC' },
+            { val: 500, label: 'Có khách hàng trả tiền đều đặn hàng tháng' },
+          ]
+        },
+        {
+          id: 'funding_raised_billion',
+          type: 'number',
+          title: 'Startup đã huy động được tổng cộng bao nhiêu tỷ VNĐ từ nhà đầu tư?',
+          placeholder: 'Ví dụ: 2 (tức 2 tỷ VNĐ). Nhập 0 nếu chưa gọi vốn.',
+          hint: 'Bao gồm vốn từ angel investor, quỹ đầu tư, hoặc cổ đông chiến lược.'
+        },
+      ],
+
+      /* ─── NHÓM 2: SMEs ──────────────────────────────────────────
+         Phương pháp: P/E, P/S, P/B (bội số ngành),
+         Gordon Growth Model, chiết khấu minh bạch BCTC
+      ────────────────────────────────────────────────────────── */
+      sme: [
+        {
+          id: 'industry',
+          type: 'text',
+          title: 'Doanh nghiệp của anh/chị đang hoạt động trong ngành gì?',
+          placeholder: 'Ví dụ: F&B, Công nghệ, Bất động sản, Giáo dục, Y tế...',
+          hint: 'Thông tin này giúp hệ thống áp dụng đúng bội số ngành tham chiếu từ HOSE/HNX.'
+        },
+        {
+          id: 'biz_model',
+          type: 'select',
+          title: 'Mô hình kinh doanh của doanh nghiệp thuộc nhóm nào?',
+          options: [
+            { val: 'fb_chain',     label: 'Chuỗi F&B / Bán lẻ' },
+            { val: 'saas',         label: 'SaaS / Phần mềm thuê bao' },
+            { val: 'manufacturing',label: 'Sản xuất truyền thống' },
+            { val: 'franchise',    label: 'Franchise / Nhượng quyền' },
+            { val: 'marketplace',  label: 'Marketplace / Nền tảng kết nối' },
+            { val: 'trading',      label: 'Thương mại / Phân phối' },
+            { val: 'services',     label: 'Dịch vụ chuyên môn' },
+          ]
+        },
+        {
+          id: 'bctc_transparency',
+          type: 'select',
+          title: 'Mức độ minh bạch báo cáo tài chính (BCTC) hiện tại?',
+          options: [
+            { val: 'A', label: 'A – Có kiểm toán / sổ sách đầy đủ, minh bạch cao (100%)' },
+            { val: 'B', label: 'B – Sổ sách nội bộ rõ ràng, chưa kiểm toán (chiết khấu 50%)' },
+            { val: 'C', label: 'C – Số liệu sơ bộ / dòng tiền khó kiểm chứng (chiết khấu 75%)' },
+          ]
+        },
+        {
+          id: 'revenue',
+          type: 'number',
+          title: 'Doanh thu 12 tháng gần nhất của doanh nghiệp là bao nhiêu (triệu VNĐ)?',
+          placeholder: 'Ví dụ: 12000 (tức 12 tỷ VNĐ)',
+          hint: 'Nhập số triệu VNĐ. Ví dụ: 12 tỷ = 12000, 850 triệu = 850.'
+        },
+        {
+          id: 'net_profit',
+          type: 'number',
+          title: 'Lợi nhuận ròng sau thuế 12 tháng gần nhất (triệu VNĐ)?',
+          placeholder: 'Ví dụ: 2000. Nhập số âm nếu doanh nghiệp đang lỗ.',
+          hint: 'Nếu doanh nghiệp đang lỗ, hệ thống tự động chuyển sang định giá theo P/S và P/B.'
+        },
+        {
+          id: 'equity',
+          type: 'number',
+          title: 'Giá trị vốn chủ sở hữu (Book Value / Equity) hiện tại (triệu VNĐ)?',
+          placeholder: 'Ví dụ: 10000 (tức 10 tỷ VNĐ)',
+          hint: 'Lấy theo sổ sách kế toán tại thời điểm lập BCTC gần nhất.'
+        },
+        {
+          id: 'total_shares',
+          type: 'number',
+          title: 'Hiện doanh nghiệp có bao nhiêu cổ phần đang lưu hành?',
+          placeholder: 'Ví dụ: 2000000 (tức 2 triệu cổ phần)',
+          hint: 'Nhập tổng số cổ phần/phần vốn góp đang lưu hành. Nếu chưa phát hành cổ phần, nhập 1000000.'
+        },
+        {
+          id: 'dividend_pct',
+          type: 'select',
+          title: 'Tỷ lệ cổ tức tiền mặt trung bình doanh nghiệp chi trả hằng năm?',
+          options: [
+            { val: 0,   label: '0% – Không chia cổ tức (tái đầu tư toàn bộ)' },
+            { val: 10,  label: '10% lợi nhuận sau thuế' },
+            { val: 20,  label: '20% lợi nhuận sau thuế' },
+            { val: 30,  label: '30% trở lên' },
+          ]
+        },
+      ],
+
+      /* ─── NHÓM 3: ENTERPRISE ────────────────────────────────────
+         Phương pháp: FCFF/FCFE (DCF),
+         EV/EBITDA, Net Debt, Terminal Value (Gordon perpetuity)
+      ────────────────────────────────────────────────────────── */
+      enterprise: [
+        {
+          id: 'industry_ent',
+          type: 'text',
+          title: 'Doanh nghiệp hoạt động trong ngành nào? (Mô tả ngắn gọn)',
+          placeholder: 'Ví dụ: Bất động sản KCN, Cảng biển – logistics, Bán lẻ đa kênh...',
+          hint: 'Thông tin ngành giúp hệ thống áp dụng EV/EBITDA multiple và WACC benchmark phù hợp.'
+        },
+        {
+          id: 'ebitda',
+          type: 'number',
+          title: 'EBITDA 12 tháng gần nhất là bao nhiêu (tỷ VNĐ)?',
+          placeholder: 'Ví dụ: 85 (tức 85 tỷ VNĐ)',
+          hint: 'EBITDA = Lợi nhuận trước thuế + Khấu hao tài sản cố định + Chi phí lãi vay.'
+        },
+        {
+          id: 'total_debt',
+          type: 'number',
+          title: 'Tổng nợ tài chính có lãi (Vay ngắn hạn + Vay dài hạn) là bao nhiêu tỷ VNĐ?',
+          placeholder: 'Ví dụ: 320',
+          hint: 'Không bao gồm phải trả thương mại. Chỉ tính các khoản vay tài chính phát sinh lãi suất.'
+        },
+        {
+          id: 'cash',
+          type: 'number',
+          title: 'Tiền mặt và tương đương tiền mặt hiện có (tỷ VNĐ)?',
+          placeholder: 'Ví dụ: 45',
+          hint: 'Bao gồm tiền mặt, tiền gửi ngắn hạn dưới 3 tháng. Net Debt = Tổng nợ – Tiền mặt.'
+        },
+        {
+          id: 'fcf_year1',
+          type: 'number',
+          title: 'Dự báo Dòng tiền tự do (FCFF) năm tới (tỷ VNĐ)?',
+          placeholder: 'Ví dụ: 60',
+          hint: 'FCFF = EBIT × (1 – thuế suất) + Khấu hao – ΔVốn lưu động – CapEx.'
+        },
+        {
+          id: 'growth_rate',
+          type: 'select',
+          title: 'Tốc độ tăng trưởng FCFF dự kiến trong 5 năm tới?',
+          options: [
+            { val: 5,  label: 'Thấp – khoảng 5%/năm (ngành trưởng thành, ổn định)' },
+            { val: 10, label: 'Trung bình – khoảng 10%/năm (tăng trưởng vừa phải)' },
+            { val: 15, label: 'Khá cao – khoảng 15%/năm (đang mở rộng tích cực)' },
+            { val: 20, label: 'Cao – 20%+/năm (ngành tăng trưởng mạnh)' },
+          ]
+        },
+        {
+          id: 'wacc',
+          type: 'select',
+          title: 'Chi phí vốn bình quân gia quyền (WACC) ước tính?',
+          options: [
+            { val: 10, label: '~10% – Doanh nghiệp nhà nước / ngành tiện ích ổn định' },
+            { val: 12, label: '~12% – Công ty tư nhân lớn, uy tín, ngành truyền thống' },
+            { val: 14, label: '~14% – Doanh nghiệp tư nhân tăng trưởng, rủi ro trung bình' },
+            { val: 16, label: '~16% trở lên – Ngành rủi ro cao, mới nổi, đòn bẩy lớn' },
+          ]
+        },
+        {
+          id: 'capex',
+          type: 'number',
+          title: 'Chi phí đầu tư vốn (CapEx) dự kiến hàng năm trong giai đoạn tới (tỷ VNĐ)?',
+          placeholder: 'Ví dụ: 25',
+          hint: 'Bao gồm đầu tư mua sắm tài sản cố định, mở rộng nhà máy, hệ thống công nghệ.'
+        },
+        {
+          id: 'total_shares_ent',
+          type: 'number',
+          title: 'Tổng số cổ phiếu/cổ phần đang lưu hành?',
+          placeholder: 'Ví dụ: 50000000 (tức 50 triệu cổ phần)',
+          hint: 'Dùng để tính giá trị vốn chủ trên mỗi cổ phần (Equity Value per Share).'
+        },
+      ]
+    };
+
+    /* ===============================================================
+       2. TRẠNG THÁI TOÀN CỤC
+    =============================================================== */
+    let state = {
+      segment: '',      // 'startup' | 'sme' | 'enterprise'
+      step: 0,          // chỉ số câu hỏi hiện tại
+      answers: {},      // { id: value, ... }
+      selectedOption: null, // giá trị đang chọn trong option-list
+      calcResult: null  // object kết quả từ engine tính toán
+    };
+
+    /* ===============================================================
+       3. ĐIỀU HƯỚNG MÀN HÌNH
+    =============================================================== */
+
+    /** Ẩn tất cả màn hình */
+    function hideAll() {
+      ['screen-segment', 'screen-questions', 'screen-loading', 'screen-result']
+        .forEach(id => {
+          const el = document.getElementById(id);
+          el.style.display = 'none';
+          el.classList.remove('screen-enter');
+        });
+    }
+
+    /** Hiện một màn hình cụ thể với animation */
+    function showScreen(id) {
+      hideAll();
+      const el = document.getElementById(id);
+      el.style.display = 'block';
+      // Kích hoạt animation sau 1 frame để CSS transition có hiệu lực
+      requestAnimationFrame(() => el.classList.add('screen-enter'));
+    }
+
+    /* ===============================================================
+       4. BẮT ĐẦU LUỒNG ĐỊNH GIÁ
+    =============================================================== */
+
+    function startFlow(segment) {
+      state.segment = segment;
+      state.step = 0;
+      state.answers = {};
+      state.selectedOption = null;
+
+      showScreen('screen-questions');
+      renderStep();
+    }
+
+    /* ===============================================================
+       5. RENDER CÂU HỎI
+    =============================================================== */
+
+    function renderStep() {
+      const questions = QUESTIONS[state.segment];
+      const q = questions[state.step];
+      const total = questions.length;
+
+      // ── Cập nhật progress bar
+      const pct = (state.step / total) * 100;
+      document.getElementById('progress-fill').style.width = pct + '%';
+
+      const segLabels = { startup: 'Startup', sme: 'SMEs', enterprise: 'Doanh nghiệp lớn' };
+      document.getElementById('progress-segment-label').textContent = segLabels[state.segment];
+      document.getElementById('progress-count-label').textContent = `Câu ${state.step + 1} / ${total}`;
+
+      // ── Nút Quay lại
+      const btnBack = document.getElementById('btn-back');
+      if (state.step === 0) {
+        btnBack.classList.add('hidden');
+      } else {
+        btnBack.classList.remove('hidden');
+      }
+
+      // ── Nút Tiếp theo (ẩn khi select, chờ chọn option)
+      const btnNext = document.getElementById('btn-next');
+      btnNext.textContent = (state.step === total - 1) ? 'Xem kết quả →' : 'Tiếp theo →';
+      btnNext.style.display = (q.type === 'select') ? 'none' : 'flex';
+
+      // ── Reset option đã chọn
+      state.selectedOption = state.answers[q.id] ?? null;
+
+      // ── Build HTML câu hỏi
+      let html = `<div class="question-number">Câu ${state.step + 1} / ${total}</div>`;
+      html += `<div class="question-text">${q.title}</div>`;
+
+      if (q.type === 'text' || q.type === 'number') {
+        const savedVal = state.answers[q.id] ?? '';
+        html += `<input
+          type="${q.type === 'number' ? 'text' : 'text'}"
+          inputmode="${q.type === 'number' ? 'decimal' : 'text'}"
+          id="q-input"
+          class="q-input"
+          placeholder="${q.placeholder || ''}"
+          value="${savedVal}"
+          autocomplete="off"
+          onkeydown="handleInputKeydown(event)"
+        >`;
+        if (q.hint) {
+          html += `<p class="q-hint">${q.hint}</p>`;
+        }
+      }
+
+      if (q.type === 'select') {
+        html += `<div class="option-list">`;
+        q.options.forEach((opt, idx) => {
+          const isSelected = (state.answers[q.id] !== undefined && state.answers[q.id] == opt.val);
+          html += `<button
+            class="option-btn ${isSelected ? 'selected' : ''}"
+            onclick="selectOption(${idx})"
+            data-val="${opt.val}"
+          >
+            <span class="opt-marker">${isSelected ? '✓' : ''}</span>
+            <span>${opt.label}</span>
+          </button>`;
+        });
+        html += `</div>`;
+      }
+
+      document.getElementById('question-render').innerHTML = html;
+
+      // Focus vào input nếu là text/number
+      if (q.type !== 'select') {
+        setTimeout(() => {
+          const inp = document.getElementById('q-input');
+          if (inp) inp.focus();
+        }, 100);
+      }
+    }
+
+    /* ===============================================================
+       6. XỬ LÝ CHỌN OPTION (select type)
+    =============================================================== */
+
+    function selectOption(idx) {
+      const questions = QUESTIONS[state.segment];
+      const q = questions[state.step];
+      const selectedVal = q.options[idx].val;
+
+      // Lưu vào answers
+      state.answers[q.id] = selectedVal;
+
+      // Cập nhật UI: bỏ selected tất cả, gán selected cho cái được chọn
+      document.querySelectorAll('.option-btn').forEach((btn, i) => {
+        btn.classList.toggle('selected', i === idx);
+        btn.querySelector('.opt-marker').textContent = (i === idx) ? '✓' : '';
+      });
+
+      // Tự động chuyển bước sau 350ms để user thấy animation
+      setTimeout(() => nextStep(), 350);
+    }
+
+    /* ===============================================================
+       7. TIẾP THEO / QUAY LẠI
+    =============================================================== */
+
+    function nextStep() {
+      const questions = QUESTIONS[state.segment];
+      const q = questions[state.step];
+
+      // Lưu giá trị input text/number
+      const inputEl = document.getElementById('q-input');
+      if (inputEl) {
+        const val = inputEl.value.trim();
+        state.answers[q.id] = val;
+      }
+
+      // Kiểm tra dữ liệu đầu vào cơ bản
+      const currentVal = state.answers[q.id];
+      if (currentVal === undefined || currentVal === '') {
+        // Hiệu ứng lắc nhẹ khi bỏ trống
+        const inp = document.getElementById('q-input');
+        if (inp) {
+          inp.style.borderColor = '#DC2626';
+          inp.style.boxShadow = '0 0 0 3px rgba(220,38,38,0.15)';
+          setTimeout(() => {
+            inp.style.borderColor = '';
+            inp.style.boxShadow = '';
+          }, 1200);
+        }
+        return;
+      }
+
+      if (state.step < questions.length - 1) {
+        state.step++;
+        renderStep();
+      } else {
+        // Câu hỏi cuối cùng → chạy loading
+        startLoading();
+      }
+    }
+
+    function prevStep() {
+      if (state.step > 0) {
+        state.step--;
+        renderStep();
+      } else {
+        // Quay về màn hình chọn phân khúc
+        resetAll();
+      }
+    }
+
+    function handleInputKeydown(e) {
+      if (e.key === 'Enter') nextStep();
+    }
+
+    /* ===============================================================
+       8. MÀN HÌNH LOADING – Hiệu ứng tiến trình giả lập
+    =============================================================== */
+
+    function startLoading() {
+      showScreen('screen-loading');
+
+      const steps = ['lstep-0', 'lstep-1', 'lstep-2', 'lstep-3'];
+      let i = 0;
+
+      // Animate từng bước mỗi 600ms
+      const interval = setInterval(() => {
+        if (i > 0) {
+          document.getElementById(steps[i - 1]).classList.remove('active');
+          document.getElementById(steps[i - 1]).classList.add('done');
+        }
+        if (i < steps.length) {
+          document.getElementById(steps[i]).classList.add('active');
+          i++;
+        } else {
+          clearInterval(interval);
+          // Sau khi loading xong, tính toán và hiển thị kết quả
+          setTimeout(() => {
+            computeAndShowResult();
+          }, 500);
+        }
+      }, 600);
+    }
+
+    /* ===============================================================
+       9. ENGINE TÍNH TOÁN FRONTEND
+       (Phiên bản nhẹ phía client – Backend Cloudflare Worker
+        sẽ là phiên bản chuẩn, gọi qua fetch('/api/valuate'))
+    =============================================================== */
+
+    function computeAndShowResult() {
+      const ans = state.answers;
+      let result = {};
+
+      if (state.segment === 'sme') {
+        result = computeSME(ans);
+      } else if (state.segment === 'startup') {
+        result = computeStartup(ans);
+      } else if (state.segment === 'enterprise') {
+        result = computeEnterprise(ans);
+      }
+
+      state.calcResult = result;
+      renderResult(result);
+      showScreen('screen-result');
+    }
+
+    /* ─── NHÓM 2: THUẬT TOÁN SME ─────────────────────────────── */
+
+    function computeSME(ans) {
+      // Đơn vị đầu vào: triệu VNĐ → chuyển về VNĐ để tính
+      const rev    = parseFloat(ans.revenue)    * 1e6 || 0;
+      const profit = parseFloat(ans.net_profit) * 1e6 || 0;
+      const equity = parseFloat(ans.equity)     * 1e6 || 0;
+      const shares = parseInt(ans.total_shares) || 1000000;
+      const divPct = parseFloat(ans.dividend_pct) / 100 || 0;
+      const bctc   = ans.bctc_transparency;    // 'A', 'B', 'C'
+      const model  = ans.biz_model;            // 'fb_chain', 'franchise', 'saas', ...
+
+      // ── Bội số ngành mặc định (F&B/Bán lẻ – có thể mở rộng theo ans.industry sau)
+      const multiples = { pe: 16.45, ps: 2.03, pb: 3.02 };
+
+      // ── Xác định trọng số theo mô hình + tình trạng lợi nhuận
+      let w = { pe: 0.20, ps: 0.50, pb: 0.20, gordon: 0.10 };
+
+      if (profit <= 0) {
+        // Doanh nghiệp lỗ: triệt tiêu P/E và Gordon
+        w.pe     = 0;
+        w.gordon = 0;
+
+        if (model === 'franchise' || model === 'fb_chain') {
+          w.ps = 0.60; w.pb = 0.40;
+        } else if (model === 'saas' || model === 'marketplace') {
+          // Startup-like models: ưu tiên top-line growth
+          w.ps = 0.90; w.pb = 0.10;
+        } else {
+          // Sản xuất / thương mại: ưu tiên giá trị sổ sách tài sản
+          w.ps = 0.30; w.pb = 0.70;
+        }
+      }
+
+      // ── Giá trị từng phương pháp
+      const v_pe = profit > 0 ? profit * multiples.pe : 0;
+      const v_ps = rev    * multiples.ps;
+      const v_pb = equity * multiples.pb;
+
+      // Gordon Growth Model: d0 = profit × divPct, g=5%, ke=15%
+      const d0       = profit > 0 ? profit * divPct : 0;
+      const v_gordon = (profit > 0 && divPct > 0) ? (d0 * 1.05) / (0.15 - 0.05) : 0;
+
+      // ── Tổng hợp trọng số
+      let baseVal = (v_pe * w.pe) + (v_ps * w.ps) + (v_pb * w.pb) + (v_gordon * w.gordon);
+
+      // ── Chiết khấu theo mức độ minh bạch BCTC
+      const discountMap = { A: 1.0, B: 0.5, C: 0.25 };
+      const discountFactor = discountMap[bctc] || 1.0;
+
+      // Gordon KHÔNG chiết khấu (phản ánh dòng tiền thực tế cổ tức)
+      const finalVal = baseVal * discountFactor;
+      const pricePerShare = finalVal / shares;
+
+      return {
+        segment: 'sme',
+        finalValuation: Math.round(finalVal),
+        pricePerShare:  Math.round(pricePerShare),
+        isLoss: profit <= 0,
+        bctc,
+        discountFactor,
+        methods: [
+          { name: 'P/E × 16.45', value: Math.round(v_pe), weight: w.pe },
+          { name: 'P/S × 2.03',  value: Math.round(v_ps), weight: w.ps },
+          { name: 'P/B × 3.02',  value: Math.round(v_pb), weight: w.pb },
+          { name: 'Gordon Growth Model', value: Math.round(v_gordon), weight: w.gordon },
+        ]
+      };
+    }
+
+    /* ─── NHÓM 1: THUẬT TOÁN STARTUP (Berkus) ─────────────────── */
+
+    function computeStartup(ans) {
+      // Berkus: mỗi yếu tố tối đa 500 triệu VNĐ (≈ $20k USD)
+      // 5 yếu tố: Idea + Team + TAM + IP + Product/Revenue
+
+      const ideaMap  = { idea: 100, mvp: 300, revenue: 500, growth: 500 };
+      const ideaScore = (ideaMap[ans.idea_stage] || 100) * 1e6;
+
+      const teamScore = parseFloat(ans.team_score) * 1e6 || 0;
+
+      // TAM: 0.05% × TAM (tỷ VNĐ) → tạo điểm Berkus phản ánh tiềm năng thị trường
+      const tam = parseFloat(ans.tam_billion) || 0;
+      const tamScore = Math.min(tam * 0.0005 * 1e9, 500e6); // tối đa 500tr
+
+      const ipScore = parseFloat(ans.ip_score) * 1e6 || 0;
+
+      const productScore = parseFloat(ans.product_score) * 1e6 || 0;
+
+      // Vốn đã gọi nhân hệ số 3× để phản ánh định giá thị trường
+      const fundingRaise = parseFloat(ans.funding_raised_billion) * 1e9 || 0;
+      const fundingValuation = fundingRaise * 3;
+
+      // Berkus base valuation
+      const berkusVal = ideaScore + teamScore + tamScore + ipScore + productScore;
+
+      // Kết hợp Berkus và ước tính từ vốn gọi (nếu có)
+      const finalVal = fundingRaise > 0
+        ? (berkusVal * 0.6) + (fundingValuation * 0.4)
+        : berkusVal;
+
+      // Fake shares = 1 triệu cổ phần cho startup chưa phát hành
+      const shares = 1000000;
+      const pricePerShare = finalVal / shares;
+
+      return {
+        segment: 'startup',
+        finalValuation: Math.round(finalVal),
+        pricePerShare:  Math.round(pricePerShare),
+        methods: [
+          { name: 'Ý tưởng / Giai đoạn (Berkus)', value: Math.round(ideaScore),    weight: 0.20 },
+          { name: 'Đội ngũ & Kinh nghiệm',          value: Math.round(teamScore),    weight: 0.15 },
+          { name: 'Quy mô thị trường (TAM)',          value: Math.round(tamScore),     weight: 0.20 },
+          { name: 'Công nghệ lõi / IP',               value: Math.round(ipScore),      weight: 0.15 },
+          { name: 'Traction (Khách hàng trả tiền)',   value: Math.round(productScore), weight: 0.30 },
+        ]
+      };
+    }
+
+    /* ─── NHÓM 3: THUẬT TOÁN ENTERPRISE (DCF / FCFF) ────────────── */
+
+    function computeEnterprise(ans) {
+      const ebitda    = parseFloat(ans.ebitda)     * 1e9 || 0;  // tỷ → VNĐ
+      const totalDebt = parseFloat(ans.total_debt) * 1e9 || 0;
+      const cash      = parseFloat(ans.cash)       * 1e9 || 0;
+      const fcf1      = parseFloat(ans.fcf_year1)  * 1e9 || 0;
+      const g5yr      = (parseFloat(ans.growth_rate) || 10) / 100;   // tốc độ tăng trưởng 5 năm
+      const wacc      = (parseFloat(ans.wacc) || 12) / 100;
+      const capex     = parseFloat(ans.capex) * 1e9 || 0;
+      const shares    = parseInt(ans.total_shares_ent) || 50000000;
+
+      const taxRate   = 0.20; // Thuế TNDN 20% (tiêu chuẩn VN)
+      const gTerminal = 0.03; // Tốc độ tăng trưởng vĩnh viễn (terminal) = 3%
+
+      // ── DCF 5 năm: tính NPV của FCFF từng năm
+      let dcfPV = 0;
+      for (let yr = 1; yr <= 5; yr++) {
+        const fcfYr = fcf1 * Math.pow(1 + g5yr, yr - 1);
+        dcfPV += fcfYr / Math.pow(1 + wacc, yr);
+      }
+
+      // ── Terminal Value (Gordon Perpetuity): FCFF năm 6 / (WACC - g_terminal)
+      const fcf6       = fcf1 * Math.pow(1 + g5yr, 5);
+      const terminalV  = fcf6 / (wacc - gTerminal);
+      const terminalPV = terminalV / Math.pow(1 + wacc, 5);
+
+      // ── Enterprise Value (EV) = PV(FCF 5 năm) + PV(Terminal Value)
+      const enterpriseValue = dcfPV + terminalPV;
+
+      // ── Equity Value = EV – Net Debt (Net Debt = Total Debt – Cash)
+      const netDebt    = totalDebt - cash;
+      const equityValue = enterpriseValue - netDebt;
+
+      // ── EV/EBITDA check (cross-validation)
+      const evEbitda = ebitda > 0 ? enterpriseValue / ebitda : 0;
+
+      const pricePerShare = equityValue / shares;
+
+      return {
+        segment: 'enterprise',
+        finalValuation: Math.round(Math.max(equityValue, 0)),
+        pricePerShare:  Math.round(pricePerShare),
+        enterpriseValue: Math.round(enterpriseValue),
+        netDebt:         Math.round(netDebt),
+        evEbitda:        evEbitda.toFixed(1),
+        methods: [
+          { name: 'NPV Dòng tiền tự do 5 năm (DCF)', value: Math.round(dcfPV),      weight: 0.55 },
+          { name: 'Terminal Value (chiết khấu)',       value: Math.round(terminalPV), weight: 0.40 },
+          { name: 'EV/EBITDA cross-check',             value: Math.round(enterpriseValue), weight: 0.05 },
+        ]
+      };
+    }
+
+    /* ===============================================================
+       10. RENDER MÀN HÌNH KẾT QUẢ
+    =============================================================== */
+
+    function formatVND(n) {
+      if (Math.abs(n) >= 1e12) return (n / 1e12).toFixed(2) + ' nghìn tỷ VNĐ';
+      if (Math.abs(n) >= 1e9)  return (n / 1e9).toFixed(2)  + ' tỷ VNĐ';
+      if (Math.abs(n) >= 1e6)  return (n / 1e6).toFixed(0)  + ' triệu VNĐ';
+      return n.toLocaleString('vi-VN') + ' VNĐ';
+    }
+
+    function formatPct(w) {
+      return (w * 100).toFixed(0) + '%';
+    }
+
+    function renderResult(result) {
+      // ── Giá trị chính
+      document.getElementById('txt-valuation').textContent =
+        '~ ' + formatVND(result.finalValuation);
+
+      const shareText = result.pricePerShare > 0
+        ? `Giá trị mỗi cổ phần: ${result.pricePerShare.toLocaleString('vi-VN')} VNĐ / cp`
+        : '';
+      document.getElementById('txt-per-share').textContent = shareText;
+
+      // ── Bảng phương pháp chi tiết
+      let tableHTML = `
+        <table class="method-table">
+          <thead>
+            <tr>
+              <th>Phương pháp</th>
+              <th style="text-align:right">Giá trị</th>
+              <th style="text-align:right">Trọng số</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      result.methods.forEach(m => {
+        tableHTML += `
+          <tr>
+            <td>${m.name}</td>
+            <td class="val-col">${formatVND(m.value)}</td>
+            <td class="weight-col">${formatPct(m.weight)}</td>
+          </tr>
+        `;
+      });
+
+      // Thêm dòng Enterprise Value và Net Debt nếu là Enterprise
+      if (result.segment === 'enterprise') {
+        tableHTML += `
+          <tr>
+            <td style="color: var(--navy-500); font-size:12px">Enterprise Value (EV)</td>
+            <td class="val-col" style="color: var(--navy-300)">${formatVND(result.enterpriseValue)}</td>
+            <td class="weight-col">–</td>
+          </tr>
+          <tr>
+            <td style="color: var(--navy-500); font-size:12px">Trừ Net Debt</td>
+            <td class="val-col" style="color: var(--navy-400)">– ${formatVND(result.netDebt)}</td>
+            <td class="weight-col">–</td>
+          </tr>
+          <tr>
+            <td style="color: var(--navy-500); font-size:12px">EV/EBITDA</td>
+            <td class="val-col" style="color: var(--amber-400)">${result.evEbitda}×</td>
+            <td class="weight-col">–</td>
+          </tr>
+        `;
+      }
+
+      tableHTML += `</tbody></table>`;
+      document.getElementById('method-detail-wrap').innerHTML = tableHTML;
+
+      // ── Bảng chiết khấu BCTC (chỉ hiện với SME)
+      const discountBox = document.getElementById('discount-box-wrap');
+      if (result.segment === 'sme') {
+        const discountLevels = [
+          { tier: 'A – Kiểm toán / minh bạch cao',    pct: '100%', key: 'A' },
+          { tier: 'B – Nội bộ chưa kiểm toán',        pct: '50%',  key: 'B' },
+          { tier: 'C – Dữ liệu sơ bộ',                pct: '25%',  key: 'C' },
+        ];
+
+        let dHTML = `<p class="discount-title">Hệ số chiết khấu theo độ minh bạch BCTC</p>`;
+        discountLevels.forEach(d => {
+          const isActive = d.key === result.bctc;
+          dHTML += `<div class="discount-row ${isActive ? 'active' : ''}">
+            <span class="tier">${d.tier}</span>
+            <span style="display:flex;align-items:center;gap:8px">
+              ${isActive ? '<span class="active-badge">Đang áp dụng</span>' : ''}
+              <span class="pct">${d.pct}</span>
+            </span>
+          </div>`;
+        });
+        discountBox.innerHTML = dHTML;
+        discountBox.style.display = 'block';
+      } else {
+        discountBox.style.display = 'none';
+      }
+    }
+
+    /* ===============================================================
+       11. LEAD FORM & THANH TOÁN
+    =============================================================== */
+
+    function toggleLeadForm() {
+      const checked = document.getElementById('chk-consent').checked;
+      const form = document.getElementById('lead-form');
+      form.style.display = checked ? 'block' : 'none';
+
+      if (checked) {
+        form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function requestPayment() {
+      const name  = document.getElementById('inp-name').value.trim();
+      const email = document.getElementById('inp-email').value.trim();
+
+      if (!name) {
+        document.getElementById('inp-name').style.borderColor = '#DC2626';
+        return;
+      }
+
+      if (!email || !email.includes('@')) {
+        document.getElementById('inp-email').style.borderColor = '#DC2626';
+        return;
+      }
+
+      // TODO Giai đoạn 4: Gửi data lên API → sinh QR Code SePay
+      // fetch('/api/create-order', { method: 'POST', body: JSON.stringify({ name, email, segment: state.segment, result: state.calcResult }) })
+      alert(`Hệ thống sẽ tạo QR Code thanh toán SePay cho ${name} (${email}) tại Giai đoạn 4 triển khai.`);
+    }
+
+    function openSupport() {
+      // TODO: Thay bằng link Zalo OA thực tế
+      alert('Liên kết Zalo hỗ trợ: Sẽ được cấu hình tại bước triển khai.');
+    }
+
+    /* ===============================================================
+       12. RESET
+    =============================================================== */
+
+    function resetAll() {
+      state = { segment: '', step: 0, answers: {}, selectedOption: null, calcResult: null };
+
+      // Reset màn hình loading steps
+      for (let i = 0; i < 4; i++) {
+        const el = document.getElementById('lstep-' + i);
+        if (el) { el.classList.remove('active', 'done'); }
+      }
+
+      // Uncheck consent
+      const chk = document.getElementById('chk-consent');
+      if (chk) chk.checked = false;
+      const form = document.getElementById('lead-form');
+      if (form) form.style.display = 'none';
+
+      showScreen('screen-segment');
+    }
+
+  </script>
+</body>
+</html>
