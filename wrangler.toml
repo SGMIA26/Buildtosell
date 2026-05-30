@@ -5,7 +5,7 @@
 
 name       = "valuitbiz-backend"
 main       = "worker.js"
-account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"   # Thay bằng Account ID thực
+account_id = "acb6f03d-684e-49e0-a5a3-1de6c779b1f2"   # Thay bằng Account ID thực
 
 compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
