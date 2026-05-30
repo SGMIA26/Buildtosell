@@ -3,7 +3,7 @@
 #  Tài liệu: https://developers.cloudflare.com/workers/wrangler/
 # ================================================================
 
-name       = "valuitbiz-backend"
+name       = "ValuitBiz – Hệ thống Định giá Doanh nghiệp Tự động-backend"
 main       = "worker.js"
 account_id = "bec4ac6e50afa24388861ee2a2940c1c"   # Thay bằng Account ID thực
 
