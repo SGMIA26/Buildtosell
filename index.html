@@ -1537,26 +1537,47 @@
     }
 
     /* ===============================================================
-       9. ENGINE TÍNH TOÁN FRONTEND
-       (Phiên bản nhẹ phía client – Backend Cloudflare Worker
-        sẽ là phiên bản chuẩn, gọi qua fetch('/api/valuate'))
+       9. API CONFIG – URL Worker thực tế
     =============================================================== */
 
-    function computeAndShowResult() {
-      const ans = state.answers;
-      let result = {};
+    const API_BASE = 'https://buildtosell.saigonmia2026.workers.dev';
 
-      if (state.segment === 'sme') {
-        result = computeSME(ans);
-      } else if (state.segment === 'startup') {
-        result = computeStartup(ans);
-      } else if (state.segment === 'enterprise') {
-        result = computeEnterprise(ans);
+    /* ===============================================================
+       10. ENGINE TÍNH TOÁN – Gọi Backend Worker thực tế
+           Fallback về tính local nếu API lỗi
+    =============================================================== */
+
+    async function computeAndShowResult() {
+      try {
+        const resp = await fetch(`${API_BASE}/api/valuate`, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ segment: state.segment, answers: state.answers })
+        });
+
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const data = await resp.json();
+
+        if (data.status === 'success') {
+          state.calcResult = data.result;
+          state.sessionId  = data.sessionId;
+          renderResult(data.result);
+          showScreen('screen-result');
+          return;
+        }
+        throw new Error(data.error || 'API lỗi');
+
+      } catch (err) {
+        console.warn('[API] Fallback local:', err.message);
+        const ans = state.answers;
+        let result = {};
+        if (state.segment === 'sme')             result = computeSME(ans);
+        else if (state.segment === 'startup')    result = computeStartup(ans);
+        else if (state.segment === 'enterprise') result = computeEnterprise(ans);
+        state.calcResult = result;
+        renderResult(result);
+        showScreen('screen-result');
       }
-
-      state.calcResult = result;
-      renderResult(result);
-      showScreen('screen-result');
     }
 
     /* ─── NHÓM 2: THUẬT TOÁN SME ─────────────────────────────── */
@@ -1845,28 +1866,76 @@
       }
     }
 
-    function requestPayment() {
+    async function requestPayment() {
       const name  = document.getElementById('inp-name').value.trim();
       const email = document.getElementById('inp-email').value.trim();
 
       if (!name) {
         document.getElementById('inp-name').style.borderColor = '#DC2626';
+        document.getElementById('inp-name').focus();
         return;
       }
-
       if (!email || !email.includes('@')) {
         document.getElementById('inp-email').style.borderColor = '#DC2626';
+        document.getElementById('inp-email').focus();
         return;
       }
 
-      // TODO Giai đoạn 4: Gửi data lên API → sinh QR Code SePay
-      // fetch('/api/create-order', { method: 'POST', body: JSON.stringify({ name, email, segment: state.segment, result: state.calcResult }) })
-      alert(`Hệ thống sẽ tạo QR Code thanh toán SePay cho ${name} (${email}) tại Giai đoạn 4 triển khai.`);
+      // Đổi nút thành trạng thái loading
+      const btn = document.querySelector('.btn-payment');
+      btn.textContent = 'Đang xử lý...';
+      btn.disabled = true;
+
+      try {
+        const resp = await fetch(`${API_BASE}/api/create-order`, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            email,
+            sessionId: state.sessionId || '',
+            segment:   state.segment
+          })
+        });
+
+        const data = await resp.json();
+
+        if (data.status === 'success') {
+          const { qrUrl, orderId, amount, description } = data.paymentInfo;
+
+          // Hiển thị màn hình QR thanh toán
+          document.getElementById('lead-form').innerHTML = `
+            <div style="text-align:center; padding: 20px 0;">
+              <p style="font-size:13px; color:var(--navy-300); margin-bottom:12px;">
+                Quét mã QR để thanh toán · Nội dung CK: <strong style="color:var(--amber-400)">${description}</strong>
+              </p>
+              <img src="${qrUrl}" alt="QR Code thanh toán" style="width:220px;height:220px;border-radius:12px;border:3px solid rgba(240,168,48,0.3);">
+              <p style="margin-top:12px; font-size:22px; font-weight:700; color:var(--amber-400);">
+                ${amount.toLocaleString('vi-VN')} VNĐ
+              </p>
+              <p style="font-size:12px; color:var(--navy-400); margin-top:6px;">
+                Mã đơn hàng: <code style="color:var(--amber-300)">${orderId}</code>
+              </p>
+              <p style="font-size:12px; color:var(--navy-500); margin-top:16px; line-height:1.6;">
+                Sau khi chuyển khoản thành công, hệ thống tự động gửi Báo cáo PDF đến <strong>${email}</strong> trong vòng 5 phút.<br>
+                Quá 5 phút chưa nhận? <a onclick="openSupport()" style="color:var(--amber-400);cursor:pointer;text-decoration:underline;">Liên hệ hỗ trợ Zalo →</a>
+              </p>
+            </div>`;
+        } else {
+          throw new Error(data.error || 'Lỗi tạo đơn hàng');
+        }
+
+      } catch (err) {
+        console.error('[CREATE ORDER]', err.message);
+        btn.textContent = 'Nâng cấp Báo cáo Phân tích Chuyên sâu · $15 USD';
+        btn.disabled = false;
+        alert('Không thể kết nối hệ thống thanh toán. Vui lòng thử lại hoặc liên hệ hỗ trợ.');
+      }
     }
 
     function openSupport() {
-      // TODO: Thay bằng link Zalo OA thực tế
-      alert('Liên kết Zalo hỗ trợ: Sẽ được cấu hình tại bước triển khai.');
+      // Thay ZALO_OA_ID bằng ID Zalo OA thực tế của bạn
+      window.open('https://zalo.me/ZALO_OA_ID', '_blank');
     }
 
     /* ===============================================================
