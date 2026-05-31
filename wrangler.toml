@@ -3,25 +3,25 @@
 #  Tài liệu: https://developers.cloudflare.com/workers/wrangler/
 # ================================================================
 
-name       = "ValuitBiz – Hệ thống Định giá Doanh nghiệp Tự động-backend"
+name       = "buildtosell"
 main       = "worker.js"
-account_id = "bec4ac6e50afa24388861ee2a2940c1c"   # Thay bằng Account ID thực
+account_id = "bec4ac6e50afa24388861ee2a2940c1c"
 
-compatibility_date = "2024-01-01"
+compatibility_date  = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
 
 # ── Routes: Bind Worker vào domain tuỳ chỉnh
 [[routes]]
-  pattern = "valuitbiz.com/api/*"
+  pattern   = "valuitbiz.com/api/*"
   zone_name = "valuitbiz.com"
 
-# ── Biến môi trường (plaintext) – Thêm vào Dashboard cho secret
+# ── Biến môi trường plaintext (không nhạy cảm)
 [vars]
   ALLOWED_ORIGIN     = "https://valuitbiz.com"
-  SEPAY_BANK_BIN     = "970422"           # MB Bank
-  SEPAY_BANK_ACCOUNT = "0000000000"       # Thay bằng số TK thực
+  SEPAY_BANK_BIN     = "970422"
+  SEPAY_BANK_ACCOUNT = "0000000000"
 
-# Secrets (dùng CLI: wrangler secret put TEN_BIEN):
+# ── Secrets – chạy từng lệnh này trong terminal trước khi deploy:
 #   wrangler secret put GOOGLE_SHEET_ID
 #   wrangler secret put GOOGLE_SERVICE_ACCOUNT
 #   wrangler secret put TELEGRAM_BOT_TOKEN
