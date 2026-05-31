@@ -49,9 +49,9 @@ export default {
     const { pathname } = new URL(request.url);
 
     try {
-      if (pathname === '/api/valuate'       && request.method === 'POST') return handleValuate(request, env, cors);
-      if (pathname === '/api/create-order'  && request.method === 'POST') return handleCreateOrder(request, env, cors);
-      if (pathname === '/api/webhook/sepay' && request.method === 'POST') return handleSepayWebhook(request, env, cors);
+      if (pathname === '/api/valuate'       && request.method === 'POST') return await handleValuate(request, env, cors);
+      if (pathname === '/api/create-order'  && request.method === 'POST') return await handleCreateOrder(request, env, cors);
+      if (pathname === '/api/webhook/sepay' && request.method === 'POST') return await handleSepayWebhook(request, env, cors);
       if (pathname === '/api/health'        && request.method === 'GET')  return jsonRes({ status: 'ok', v: '2.0' }, 200, cors);
 
       return jsonRes({ error: 'Endpoint không tồn tại.' }, 404, cors);

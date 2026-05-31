@@ -1,6 +1,6 @@
 # ================================================================
 #  VALUITBIZ – Cloudflare Worker Config
-#  Tài liệu: https://developers.cloudflare.com/workers/wrangler/
+#  Repo: SGMIA26/Buildtosell
 # ================================================================
 
 name       = "buildtosell"
@@ -10,18 +10,19 @@ account_id = "bec4ac6e50afa24388861ee2a2940c1c"
 compatibility_date  = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
 
-# ── Routes: Bind Worker vào domain tuỳ chỉnh
-[[routes]]
-  pattern   = "valuitbiz.com/api/*"
-  zone_name = "valuitbiz.com"
-
-# ── Biến môi trường plaintext (không nhạy cảm)
+# ── Biến môi trường plaintext
 [vars]
-  ALLOWED_ORIGIN     = "https://valuitbiz.com"
+  ALLOWED_ORIGIN     = "*"
   SEPAY_BANK_BIN     = "970422"
   SEPAY_BANK_ACCOUNT = "0000000000"
 
-# ── Secrets – chạy từng lệnh này trong terminal trước khi deploy:
+# ── KHÔNG đặt [[routes]] ở đây khi chưa verify domain trên Cloudflare
+# ── Sau khi domain valuitbiz.com đã active, thêm lại:
+# [[routes]]
+#   pattern   = "valuitbiz.com/api/*"
+#   zone_name = "valuitbiz.com"
+
+# ── Secrets – chạy 1 lần trong terminal:
 #   wrangler secret put GOOGLE_SHEET_ID
 #   wrangler secret put GOOGLE_SERVICE_ACCOUNT
 #   wrangler secret put TELEGRAM_BOT_TOKEN
